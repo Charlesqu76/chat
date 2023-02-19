@@ -16,7 +16,7 @@ export const fetchChatGPT = async (param: {
         {
           headers: {
             Authorization:
-              "Bearer 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",
+              "Bearer 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",
             "Content-Type": "application/json",
           },
           cancelToken: param.cancelToken,

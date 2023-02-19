@@ -1,0 +1,72 @@
+.output {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 10px;
+  border-radius: 10px;
+  margin: 20px 0;
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+}
+.output-line {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+.output-line-loading {
+  animation: loading 1s infinite;
+  height: 22px;
+  width: 10px;
+  background-color: #e2e2e2;
+  border-radius: 2px;
+}
+
+@keyframes loading {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.output-line-gpt-icon {
+  width: 30px;
+  height: 30px;
+  margin-right: 5px;
+  margin-top: 2px;
+}
+
+.output-line-gpt-text {
+  background-color: #e2e2e2;
+  padding: 5px;
+  border-radius: 5px;
+  color: #000;
+  white-space: pre-wrap;
+  margin-right: 30px;
+  &-error {
+    background-color: rgb(255, 78, 47);
+  }
+}
+
+.output-line-user {
+  justify-content: flex-end;
+}
+
+.output-line-user-text {
+  background-color: #59b269;
+  padding: 5px;
+  border-radius: 5px;
+  white-space: pre-wrap;
+  margin-left: 30px;
+}
+.output-line-user-icon {
+  width: 30px;
+  height: 30px;
+  margin-left: 5px;
+  margin-top: 2px;
+}

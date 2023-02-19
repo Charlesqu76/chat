@@ -243,6 +243,7 @@ class App extends React.Component<{}, IState> {
               );
             })}
           </div>
+
           <div className="complex-slide-add">
             <span
               className="complex-slide-add-text"
@@ -256,6 +257,7 @@ class App extends React.Component<{}, IState> {
           <div className="complex-content-output">
             <Output textList={textListT}></Output>
           </div>
+
           <div className="complex-content-input">
             <input
               className="complex-content-input-input"

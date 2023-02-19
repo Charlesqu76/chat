@@ -16,7 +16,7 @@ export const fetchChatGPT = async (param: {
         {
           headers: {
             Authorization:
-              "Bearer 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",
+              "Bearer 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",
             "Content-Type": "application/json",
           },
           cancelToken: param.cancelToken,
@@ -24,8 +24,8 @@ export const fetchChatGPT = async (param: {
       )
       .then((res) => resolve(res.data))
       .catch((e) => {
-        console.log(e);
         resolve({ isError: true });
       });
   });
 };
+

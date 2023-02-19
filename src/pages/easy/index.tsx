@@ -6,6 +6,8 @@ import Output from "../../components/output";
 import "./index.scss";
 import axios from "axios";
 import { getinput } from "../../util";
+const APIKEY = "APIKEY";
+
 const CancelToken = axios.CancelToken;
 const source = CancelToken.source();
 type IState = {
@@ -17,6 +19,7 @@ type IState = {
 class App extends React.Component<{}, IState> {
   inputRef: React.RefObject<HTMLInputElement>;
   appWindow: any;
+  apiKey = "" as string;
   constructor(props: any) {
     super(props);
     this.state = {
@@ -47,7 +50,8 @@ class App extends React.Component<{}, IState> {
       }
     });
 
-    document.addEventListener("keypress", this.handleKeyPress);
+    (this.apiKey = localStorage.getItem(APIKEY) || ""),
+      document.addEventListener("keypress", this.handleKeyPress);
   }
 
   componentWillUnmount(): void {
@@ -78,13 +82,11 @@ class App extends React.Component<{}, IState> {
       loading: true,
     });
 
-    console.log(getinput(newTextList));
     const data = await fetchChatGPT({
       data: getinput(newTextList),
       cancelToken: source.token,
+      apiKey: this.apiKey,
     });
-
-    console.log(data);
 
     const { choices = [], isError } = data;
     const { text: newText } = choices[0] || {};

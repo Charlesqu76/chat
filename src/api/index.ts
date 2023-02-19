@@ -2,6 +2,7 @@ import axios from "axios";
 export const fetchChatGPT = async (param: {
   data: string;
   cancelToken?: any;
+  apiKey: string;
 }): Promise<any> => {
   return new Promise(async (resolve, reject) => {
     axios
@@ -15,8 +16,7 @@ export const fetchChatGPT = async (param: {
         },
         {
           headers: {
-            Authorization:
-              "Bearer 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",
+            Authorization: `Bearer ${param.apiKey}`,
             "Content-Type": "application/json",
           },
           cancelToken: param.cancelToken,
@@ -28,4 +28,3 @@ export const fetchChatGPT = async (param: {
       });
   });
 };
-
